@@ -1,0 +1,9 @@
+{
+    "movies": [
+        {
+            "name": "Hello, My Name Is Doris",
+            "year": "2015",
+            "image": "https://m.media-amazon.com/images/M/MV5BNDYwMmEwNmYtZGQwYS00ODhjLTlmMmQtM2M3NTFmODQyOTAyXkEyXkFqcGc@._V1_SX300.jpg"
+        }
+    ]
+}

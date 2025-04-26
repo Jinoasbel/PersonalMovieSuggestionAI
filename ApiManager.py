@@ -11,7 +11,7 @@ import requests
 class ApiManager:
 
     ApiKey = "9f5d9eb3"
-    SafetyInt = 10
+    # SafetyInt = 10
 
     def RandomWordGenerator(self):
 
@@ -21,11 +21,12 @@ class ApiManager:
     
     def UpdateList(self):
 
-        for i in range (0, self.SafetyInt):
+        # for i in range (0, self.SafetyInt):
             Title = self.RandomWordGenerator()
             OmdbApiUrl = f"http://www.omdbapi.com/?s={Title}&apikey={self.ApiKey}"
-            Response = requests.get(OmdbApiUrl)
-            print(Response.json())
+            print(OmdbApiUrl)
+            return requests.get(OmdbApiUrl).json()
+
 
 obj = ApiManager()
 obj.UpdateList()
