@@ -11,21 +11,24 @@ import requests
 class ApiManager:
 
     ApiKey = "9f5d9eb3"
-    # SafetyInt = 10
 
     def RandomWordGenerator(self):
 
         RndWordApi = "https://random-word-api.herokuapp.com/word?"
-        return requests.get(RndWordApi).json()[0]
+        response = requests.get(RndWordApi).json()[0]
+        print(f"RandomWordGenerator: {response}")
+        return response
+
         
     
     def UpdateList(self):
 
-        # for i in range (0, self.SafetyInt):
             Title = self.RandomWordGenerator()
             OmdbApiUrl = f"http://www.omdbapi.com/?s={Title}&apikey={self.ApiKey}"
-            print(OmdbApiUrl)
-            return requests.get(OmdbApiUrl).json()
+            response = requests.get(OmdbApiUrl).json()
+            print(f"UpdateList: {OmdbApiUrl}\nResponse: {response}")
+
+            return response
 
 
 obj = ApiManager()

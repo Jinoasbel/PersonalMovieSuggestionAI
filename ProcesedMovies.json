@@ -1,9 +1,49 @@
 {
     "movies": [
         {
-            "name": "Hello, My Name Is Doris",
+            "name": "Scissor Seven",
+            "year": "2018\u2013",
+            "image": "https://m.media-amazon.com/images/M/MV5BMDk4NjI3MDItZGEyYy00NThiLTgyZWQtYmY4NzAxMTQzMDNmXkEyXkFqcGc@._V1_SX300.jpg"
+        },
+        {
+            "name": "Scissor Sisters: Return to Oz",
+            "year": "2004",
+            "image": "N/A"
+        },
+        {
+            "name": "Scissor",
+            "year": "2016",
+            "image": "https://m.media-amazon.com/images/M/MV5BNDE0Yzc2YWQtYTE5Zi00ZGJlLWE4NTQtZTIxMGI3MjRkZDNkXkEyXkFqcGdeQXVyNjkxOTM4ODY@._V1_SX300.jpg"
+        },
+        {
+            "name": "The Murderous Scissor Sisters",
+            "year": "2024",
+            "image": "N/A"
+        },
+        {
+            "name": "Scissor Sisters: Hurrah! A Year of Ta-Dah",
+            "year": "2007",
+            "image": "https://m.media-amazon.com/images/M/MV5BYzA1MjNkYTMtMjc3Zi00MjcxLTlkOTAtM2EyN2FkMzA1YmM2XkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_SX300.jpg"
+        },
+        {
+            "name": "Scissor Man",
             "year": "2015",
-            "image": "https://m.media-amazon.com/images/M/MV5BNDYwMmEwNmYtZGQwYS00ODhjLTlmMmQtM2M3NTFmODQyOTAyXkEyXkFqcGc@._V1_SX300.jpg"
+            "image": "https://m.media-amazon.com/images/M/MV5BMjI5MTczODE2NV5BMl5BanBnXkFtZTgwNjY0MjAwNjE@._V1_SX300.jpg"
+        },
+        {
+            "name": "Scissor, Paper, Rock.",
+            "year": "2015",
+            "image": "N/A"
+        },
+        {
+            "name": "Scissor Sisters: Live at the O2, London",
+            "year": "2007",
+            "image": "N/A"
+        },
+        {
+            "name": "Scissor Happy",
+            "year": "2015",
+            "image": "https://m.media-amazon.com/images/M/MV5BZDJkNWJjNzItZGJmOS00ZTUzLTkxM2EtOGZlOGU3MWJiODgyXkEyXkFqcGdeQXVyODA4MjA0NjE@._V1_SX300.jpg"
         }
     ]
 }
