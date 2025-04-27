@@ -1,49 +1,214 @@
 {
     "movies": [
         {
-            "name": "Scissor Seven",
-            "year": "2018\u2013",
-            "image": "https://m.media-amazon.com/images/M/MV5BMDk4NjI3MDItZGEyYy00NThiLTgyZWQtYmY4NzAxMTQzMDNmXkEyXkFqcGc@._V1_SX300.jpg"
+            "name": "Bury",
+            "year": "2014",
+            "image_path": "/nsc3D99YPaN94a6fe4N5oO9O7X9.jpg",
+            "genre_ids": [],
+            "popularity": 0.0775,
+            "Rating": 2.0
         },
         {
-            "name": "Scissor Sisters: Return to Oz",
-            "year": "2004",
-            "image": "N/A"
+            "name": "Il mio corpo vi seppellir\u00e0",
+            "year": "2021",
+            "image_path": "/jHcJ4ng4bmcWNh57kjhwploKdTs.jpg",
+            "genre_ids": [
+                18,
+                28,
+                37
+            ],
+            "popularity": 0.9206,
+            "Rating": 5.643
         },
         {
-            "name": "Scissor",
-            "year": "2016",
-            "image": "https://m.media-amazon.com/images/M/MV5BNDE0Yzc2YWQtYTE5Zi00ZGJlLWE4NTQtZTIxMGI3MjRkZDNkXkEyXkFqcGdeQXVyNjkxOTM4ODY@._V1_SX300.jpg"
+            "name": "\u536b\u65af\u7406\u4e4b\u9738\u738b\u5378\u7532",
+            "year": "1991",
+            "image_path": "/zAws8T2cCeAqevgzNDLpHWAXcV3.jpg",
+            "genre_ids": [
+                28,
+                12
+            ],
+            "popularity": 1.2071,
+            "Rating": 5.5
         },
         {
-            "name": "The Murderous Scissor Sisters",
+            "name": "Bury My Heart at Wounded Knee",
+            "year": "2007",
+            "image_path": "/w8FeAVNxe17rQUqaBhKy5F0wpBf.jpg",
+            "genre_ids": [
+                37,
+                18,
+                36,
+                10770,
+                10752
+            ],
+            "popularity": 1.4303,
+            "Rating": 6.6
+        },
+        {
+            "name": "The Lies We Bury",
+            "year": "2025",
+            "image_path": "/fWkxasR4RSVhlZmZZHcX64SNK87.jpg",
+            "genre_ids": [
+                10770,
+                18
+            ],
+            "popularity": 0.923,
+            "Rating": 0.0
+        },
+        {
+            "name": "\u041f\u043e\u0445\u043e\u0440\u043e\u043d\u0438\u0442\u0435 \u043c\u0435\u043d\u044f \u0437\u0430 \u043f\u043b\u0438\u043d\u0442\u0443\u0441\u043e\u043c",
+            "year": "2009",
+            "image_path": "/eAEevhb654WbpRWwsVohKEeQjx.jpg",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 0.464,
+            "Rating": 6.4
+        },
+        {
+            "name": "All'ultimo sangue",
+            "year": "1968",
+            "image_path": "/fuwqtbeN0ZY8zeoBKCaSrCYHryA.jpg",
+            "genre_ids": [
+                37
+            ],
+            "popularity": 0.3652,
+            "Rating": 5.8
+        },
+        {
+            "name": "Burying Doris",
+            "year": "",
+            "image_path": "/nrCHznze3w0hKkNR7z2FmuwjQaN.jpg",
+            "genre_ids": [
+                18,
+                10751,
+                35
+            ],
+            "popularity": 0.3138,
+            "Rating": 0.0
+        },
+        {
+            "name": "Hasta que nos entierren a todos",
+            "year": "2019",
+            "image_path": "/oAVVTLMUC1sneWM7GAXkPlUKjhf.jpg",
+            "genre_ids": [],
+            "popularity": 0.1386,
+            "Rating": 5.0
+        },
+        {
+            "name": "Burying the Ex",
+            "year": "2014",
+            "image_path": "/bX6hhBfCervkUQZpd8BlY7PSImr.jpg",
+            "genre_ids": [
+                35,
+                27
+            ],
+            "popularity": 3.0524,
+            "Rating": 5.528
+        },
+        {
+            "name": "Enterre Seus Mortos",
             "year": "2024",
-            "image": "N/A"
+            "image_path": "/cvsrMilQy2aTovm1dWsFrU3pZnU.jpg",
+            "genre_ids": [
+                27
+            ],
+            "popularity": 0.6672,
+            "Rating": 0.0
         },
         {
-            "name": "Scissor Sisters: Hurrah! A Year of Ta-Dah",
-            "year": "2007",
-            "image": "https://m.media-amazon.com/images/M/MV5BYzA1MjNkYTMtMjc3Zi00MjcxLTlkOTAtM2EyN2FkMzA1YmM2XkEyXkFqcGdeQXVyMjUyNDk2ODc@._V1_SX300.jpg"
+            "name": "Bury Him",
+            "year": "2024",
+            "image_path": "/skkUDazqkI1ayQ2AQf8C5NN4Q40.jpg",
+            "genre_ids": [
+                80,
+                53,
+                35
+            ],
+            "popularity": 1.0577,
+            "Rating": 0.0
         },
         {
-            "name": "Scissor Man",
-            "year": "2015",
-            "image": "https://m.media-amazon.com/images/M/MV5BMjI5MTczODE2NV5BMl5BanBnXkFtZTgwNjY0MjAwNjE@._V1_SX300.jpg"
+            "name": "\u308f\u305f\u3057\u3092\u6df1\u304f\u57cb\u3081\u3066",
+            "year": "1963",
+            "image_path": "/fcWjVAVIcB92UdRo2qrilcem0oO.jpg",
+            "genre_ids": [
+                18,
+                9648
+            ],
+            "popularity": 0.1892,
+            "Rating": 6.0
         },
         {
-            "name": "Scissor, Paper, Rock.",
-            "year": "2015",
-            "image": "N/A"
+            "name": "I Bury the Living",
+            "year": "1958",
+            "image_path": "/3qBNVDbdXNRsexZ5mLvMcvItayH.jpg",
+            "genre_ids": [
+                9648,
+                27
+            ],
+            "popularity": 1.8819,
+            "Rating": 6.2
         },
         {
-            "name": "Scissor Sisters: Live at the O2, London",
-            "year": "2007",
-            "image": "N/A"
+            "name": "No me entierres",
+            "year": "2020",
+            "image_path": null,
+            "genre_ids": [
+                27
+            ],
+            "popularity": 0.0286,
+            "Rating": 0.0
         },
         {
-            "name": "Scissor Happy",
-            "year": "2015",
-            "image": "https://m.media-amazon.com/images/M/MV5BZDJkNWJjNzItZGJmOS00ZTUzLTkxM2EtOGZlOGU3MWJiODgyXkEyXkFqcGdeQXVyODA4MjA0NjE@._V1_SX300.jpg"
+            "name": "On n'enterre pas le dimanche",
+            "year": "1960",
+            "image_path": "/92n974eI6oO9QzRK2LTauKqtwPh.jpg",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 0.1069,
+            "Rating": 5.1
+        },
+        {
+            "name": "Malduguns",
+            "year": "2021",
+            "image_path": "/2oIEMXLNVoOGmH0bGqocOSnZzC3.jpg",
+            "genre_ids": [
+                10402,
+                35
+            ],
+            "popularity": 0.0643,
+            "Rating": 0.0
+        },
+        {
+            "name": "Antes de que nos entierren a todos",
+            "year": "",
+            "image_path": null,
+            "genre_ids": [],
+            "popularity": 0.0,
+            "Rating": 0.0
+        },
+        {
+            "name": "\uc2dc\uccb4\uc90d\ub294 \uc18c\ub140",
+            "year": "2016",
+            "image_path": "/2K5yE6Wf4e0uPqB8FDDnB4H6Jrt.jpg",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 0.0486,
+            "Rating": 0.0
+        },
+        {
+            "name": "\u592a\u967d\u306e\u5893\u5834",
+            "year": "1960",
+            "image_path": "/yKruoEfZtL7TakCG2nFcB6HG50N.jpg",
+            "genre_ids": [
+                18
+            ],
+            "popularity": 1.6413,
+            "Rating": 6.5
         }
     ]
 }

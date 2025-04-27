@@ -6,32 +6,36 @@ class FileManager:
     def __init__(self):        
         self.FileName = "ProcesedMovies.json"
         ApiObj = ApiManager()
-        self.SampleData=ApiObj.UpdateList()
+        self.ApiData=ApiObj.UpdateList()
         self.SafetyInt = 10
 
 
     def FileWriter(self):
         for i in range (0, self.SafetyInt):
 
-            if (self.SampleData.get("Response")) == "True":
+            if (self.ApiData.get("total_results")) != 0:
                 print("\n\n\nResponse is True")
                 with open(self.FileName, "r") as File:
-                    data = json.load(File)
+                    FileData = json.load(File)
                     
-                    for movie in self.SampleData.get("Search"):
+                    for movie in self.ApiData.get("results"):
 
-                        if self.MovieChecker(movie.get("Title")) == True:
+                        if self.MovieChecker(movie.get("original_title")) == True:
                             continue
                         else:
-                            print(f"Loop in FileWriter: {movie}")
-                            data["movies"].append({
-                                "name":movie.get("Title"),
-                                "year":movie.get("Year"),
-                                "image":movie.get("Poster")
-                                })
+                            print(f"Looping in FileWriter: {movie}")
+                            FileData["movies"].append({
+                                "name":movie.get("original_title"),
+                                "year":movie.get("release_date").split("-")[0],
+                                "image_path":movie.get("poster_path"),
+                                "genre_ids":movie.get("genre_ids"),
+                                "popularity":movie.get("popularity"),
+                                "Rating":movie.get("vote_average")
+
+                            })
                             
                             with open(self.FileName, "w") as File:
-                                json.dump(data, File, indent=4)
+                                json.dump(FileData, File, indent=4)
             else:
                 continue
 

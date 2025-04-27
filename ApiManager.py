@@ -11,6 +11,7 @@ import requests
 class ApiManager:
 
     ApiKey = "9f5d9eb3"
+    TmdbApiKey = "868d76c9b91e24806e8673c3515380e2"
 
     def RandomWordGenerator(self):
 
@@ -23,10 +24,11 @@ class ApiManager:
     
     def UpdateList(self):
 
-            Title = self.RandomWordGenerator()
+            Title = self.RandomWordGenerator()         
             OmdbApiUrl = f"http://www.omdbapi.com/?s={Title}&apikey={self.ApiKey}"
-            response = requests.get(OmdbApiUrl).json()
-            print(f"UpdateList: {OmdbApiUrl}\nResponse: {response}")
+            TmdbApi = f"https://api.themoviedb.org/3/search/movie?api_key={self.TmdbApiKey}&query={Title}"
+            response = requests.get(TmdbApi).json()
+            print(f"UpdateList: {TmdbApi}\nResponse: {response}")
 
             return response
 
