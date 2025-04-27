@@ -1,13 +1,3 @@
-import json
-FileName = "ProcesedMovies.json"
-
-
-def MovieChecker():
-
-  print("\n\n\nMovieChecker")
-  with open(FileName, "r") as File:
-    Data = json.load(File)
-  for MovieName in Data.get("movies"): 
-    print(MovieName.get("name"))
-
-MovieChecker()
+x = [1,2,3]
+y=[3,2]
+ arr = [1 if a in ]
