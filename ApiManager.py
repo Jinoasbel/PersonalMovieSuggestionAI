@@ -19,7 +19,6 @@ class ApiManager:
         try:
             RndWordApi = "https://random-word-api.herokuapp.com/word?"
             response = requests.get(RndWordApi).json()[0]
-            #print(f"\n\n\nRandomWordGenerator: {response}")
             return response
         except requests.exceptions.ConnectionError as e:
             print(f"there is an error occured - something")
@@ -34,10 +33,7 @@ class ApiManager:
                 Title = self.RandomWordGenerator()         
                 OmdbApiUrl = f"http://www.omdbapi.com/?s={Title}&apikey={self.ApiKey}"
                 TmdbApi = f"https://api.themoviedb.org/3/search/movie?api_key={self.TmdbApiKey}&query={Title}"
-                #TmdbApi = f"https://api.themoviedb.org/3/movie/popular?api_key={self.TmdbApiKey}& page = 7"
-                # TmdbApi = "https://api.themoviedb.org/3/movie/popular?api_key=868d76c9b91e24806e8673c3515380e2&page=10"
                 response = requests.get(TmdbApi).json()
-                #print(f"\n\n\n\nUpdateList: {TmdbApi}\nResponse: {response}")
 
                 return response
     
