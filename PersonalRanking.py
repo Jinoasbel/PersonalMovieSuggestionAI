@@ -42,7 +42,7 @@ class PersonalRanking:
         # Keep top 20
         self.TopRankings = [movie for _, movie in PreferenceVector[:20]]
         pprint(self.TopRankings)
-        print(PreferenceVector)
+        # print(PreferenceVector)
         return PreferenceVector
 
 
