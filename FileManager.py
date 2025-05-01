@@ -17,7 +17,7 @@ class FileManager:
             FileData = json.load(File)
             for i in range (0, self.SafetyInt):
                 
-                if (self.ApiData.get("total_results")) != 0:
+                if self.ApiData and self.ApiData.get("total_results") != 0:
                     print("\n\n\nResponse is True")
                     # with open(self.FileName, "r") as File:
                     #     FileData = json.load(File)
@@ -45,7 +45,7 @@ class FileManager:
                             )
                                 
                             with open(self.FileName, "w") as File:
-                                json.dump(FileData, File, indent=4)
+                                json.dump(FileData, File, indent = 2)
                 else:
                     continue
 
@@ -65,6 +65,6 @@ class FileManager:
 
         return False
                       
-
-FileManager().FileWriter()
+if __name__ == "__main__":
+    FileManager().FileWriter()
 
