@@ -13,6 +13,12 @@ class PersonalRanking:
 
     TopRankings = []
 
+    def Printer(self):
+        for Index, movie in enumerate(self.TopRankings, start = 1):
+            print(f"{Index} - Movie Name - {movie.get("name")}")
+            print(f"\tReleased On - {movie.get("year")}")
+            print(f"\tRating - {movie.get("rating","none")}")
+
     def MovieRanking(self):
         PreferenceVector = []
         self.TopRankings = []
@@ -41,7 +47,9 @@ class PersonalRanking:
 
         # Keep top 20
         self.TopRankings = [movie for _, movie in PreferenceVector[:20]]
-        pprint(self.TopRankings)
+        # pprint(self.TopRankings)
+        self.Printer()
+        
         # print(PreferenceVector)
         return PreferenceVector
 
@@ -49,22 +57,27 @@ class PersonalRanking:
     def UpdateUserVector(self, TopRankings):
         
         alpha = 0.1
-        suggestion = input("Do you Enjoy the Movie I suggested (Y/N): ").capitalize() 
-        if suggestion == "Y" or "YES":
-            for Index, movie in enumerate(TopRankings, start = 1):
-                    print(f"{Index}-Movie Name :{movie[1].get("name")}")
-            IndexName = int(input("Enter The Index of The Movie You Watched : "))
-            Movie = TopRankings[IndexName-1]
-            self.Data["user_vector"] = [(1 - alpha) * u + alpha * m 
-                    for u, m in zip(self.UserVector, Movie[1].get("movie_vector"))
-                ]
-            print(f"\n\n{self.Data["user_vector"]}")
-            with open(self.FileName, 'w') as File:
-                json.dump(self.Data, File, indent=4)
-        else:
-             print("sorry :( can you try Other movie")
-             return
+        if input("Have you watched any of the suggested movies(y/n) : ").capitalize() == "Y":
 
+            suggestion = input("Do you Enjoy the Movie I suggested (Y/N): ").capitalize() 
+            if suggestion == "Y" or "YES":
+                for Index, movie in enumerate(TopRankings, start = 1):
+                        print(f"{Index}-Movie Name :{movie[1].get("name")}")
+                        if Index == 20:
+                            break;
+                IndexName = int(input("Enter The Index of The Movie You Watched : "))
+                Movie = TopRankings[IndexName-1]
+                self.Data["user_vector"] = [(1 - alpha) * u + alpha * m 
+                        for u, m in zip(self.UserVector, Movie[1].get("movie_vector"))
+                    ]
+                print(f"\n\n{self.Data["user_vector"]}")
+                with open(self.FileName, 'w') as File:
+                    json.dump(self.Data, File, indent=4)
+            else:
+                print("sorry :( can you try Other movie")
+                return
+        else:
+            print("please Watch Any of the Movies")
             
 if __name__ == "__main__":
     obj = PersonalRanking()
