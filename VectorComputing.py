@@ -2,93 +2,70 @@
 
 class VectorComputing:
     
-    Actors = [
-    "Robert Downey Jr.",
-    "Leonardo DiCaprio",
-    "Tom Cruise",
-    "Johnny Depp",
-    "Brad Pitt",
-    "Dwayne Johnson",
-    "Ryan Reynolds",
-    "Chris Hemsworth",
-    "Tom Holland",
-    "Pedro Pascal"
-]
+    # GenreVector = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
+    # Genre = {
+    # 28: 'Action', 12: 'Adventure', 16: 'Animation', 35: 'Comedy', 80: 'Crime', 99: 'Documentary',
+    # 18: 'Drama', 10751: 'Family', 14: 'Fantasy', 36: 'History', 27: 'Horror', 10402: 'Music',
+    # 9648: 'Mystery', 10749: 'Romance', 878: 'Science Fiction', 10770: 'TV Movie', 53: 'Thriller',
+    # 10752: 'War', 37: 'Western'
+    # }
 
-    GenreVector = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
-    Genre = {
-    28: 'Action', 12: 'Adventure', 16: 'Animation', 35: 'Comedy', 80: 'Crime', 99: 'Documentary',
-    18: 'Drama', 10751: 'Family', 14: 'Fantasy', 36: 'History', 27: 'Horror', 10402: 'Music',
-    9648: 'Mystery', 10749: 'Romance', 878: 'Science Fiction', 10770: 'TV Movie', 53: 'Thriller',
-    10752: 'War', 37: 'Western'
-    }
+    Genre_ids = [
+    28, 12, 16, 35, 80, 99, 18, 10751,
+    14, 36, 27, 10402, 9648, 10749, 878,
+    10770, 53, 10752, 37
+    ]
+
+    # Others = ["Year", "Rating", "Popularity"]
+    # UserPreference = Others+Genre+Actors
 
 
 
-    Others = ["Year", "Rating", "Popularity"]
-    UserPreference = Others+Genre+Actors
+    def MovieVector(self, genre):
 
-
-    Movies = {
-        "page": 1,
-        "results": [
-        {
-            "adult": False,
-            "backdrop_path": "/vL5LR6WdxWPjLPFRLe133jXWsh5.jpg",
-            "genre_ids": [28, 12, 14, 878],
-            "id": 19995,
-            "original_language": "en",
-            "original_title": "Avatar",
-            "overview": "In the 22nd century, a paraplegic Marine is dispatched to the moon Pandora on a unique mission, but becomes torn between following orders and protecting an alien civilization.",
-            "popularity": 26.1186,
-            "poster_path": "/kyeqWdyUXW608qlYkRqosgbbJyK.jpg",
-            "release_date": "2009-12-15",
-            "title": "Avatar",
-            "video": False,
-            "vote_average": 7.589,
-            "vote_count": 32179
-        },
-        {
-            "adult": False,
-            "backdrop_path": None,
-            "genre_ids": [18],
-            "id": 1096978,
-            "original_language": "es",
-            "original_title": "Avatar",
-            "overview": "Tension mounts between a quadraplegic man and his wife as she prepares a bath for him.",
-            "popularity": 0.4912,
-            "poster_path": "/gmnD2e1RvMdCl9D1rsDEQaQlJxK.jpg",
-            "release_date": "2006-04-11",
-            "title": "Avatar",
-            "video": False,
-            "vote_average": 5.941,
-            "vote_count": 59
-        }
-        ],
-        "total_pages": 4,
-        "total_results": 79
-    }
-
-
-
-    def MovieVector(self):
-
-        ArrayOfDict = self.Movies.get("results") # array of dicts
-
-        for EachDict in ArrayOfDict:  # iterates over each dict in array
-
-            ArrayOfGenres = EachDict.get("genre_ids") # array of genre values
-
-            for Index, EachValue in enumerate(self.Genre_ids, start=0):
-                for EachElement in ArrayOfGenres:
-                    if EachValue == EachElement:
-                        self.GenreVector.insert(Index, 1)
+        GenreVector = [0]*len(self.Genre_ids)
         
-        print(self.GenreVector)
-        return self.GenreVector
+        for EachGenre in genre:
+            if EachGenre in self.Genre_ids:
+                index = self.Genre_ids.index(EachGenre)
+                GenreVector[index] = 1
+        return GenreVector
+        # ArrayOfDict = self.Movies.get("results") # array of dicts
+
+        # for EachDict in ArrayOfDict:  # iterates over each dict in array
+        #     print("check")
+
+        #     ArrayOfGenres = EachDict.get("genre_ids") # array of genre values
+
+        # for Index, EachValue in enumerate(self.Genre_ids, start=0): #[0,0,0,0,0,0,0,0,0,0,0,0,0]
+        #     print("x")
+        #     for EachElement in genre: #[28, 12, 14, 878]
+        #         print("y")
+        #         if EachValue == EachElement:
+        #             #GenreVector.insert(Index, 1)
+        #             GenreVector[Index] = 1
+        
+        # print(GenreVector)
+        # return GenreVector
+        # # return genrevector
 
 
-    def min_max_scale(value, min_value, max_value):
-        return (value - min_value) / (max_value - min_value)
+    def min_max_scale(self,value, min_value, max_value):
+       # return float(value)*float(min_value)/float(max_value)*float(min_value)
+        return abs((value-min_value) / (max_value-min_value))
+    
 
-print(VectorComputing().MovieVector())
+    def Vector2Compute(self, popularity, rating, year):
+        Vector2 = [self.min_max_scale(year,1900,2025), self.min_max_scale(rating, 1, 10), abs(popularity/40000)]
+        return Vector2
+    
+    def VectorSummation(self, genre, popularity, rating, year ):
+        return self.MovieVector(genre)+self.Vector2Compute(float(popularity), float(rating), float(year))
+
+# print(VectorComputing().VectorSummation())
+
+# "movie_vector":VectorComputing().VectorSummation(movie.get("genre_ids"),
+#                                                                                  movie.get("vote_average"),
+#                                                                                  movie.get("popularity"),
+#                                                                                  movie.get("release_date").split("-")[0]
+#                                                                                  )

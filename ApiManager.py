@@ -13,25 +13,35 @@ class ApiManager:
     ApiKey = "9f5d9eb3"
     TmdbApiKey = "868d76c9b91e24806e8673c3515380e2"
 
+
     def RandomWordGenerator(self):
 
-        RndWordApi = "https://random-word-api.herokuapp.com/word?"
-        response = requests.get(RndWordApi).json()[0]
-        print(f"RandomWordGenerator: {response}")
-        return response
-
+        try:
+            RndWordApi = "https://random-word-api.herokuapp.com/word?"
+            response = requests.get(RndWordApi).json()[0]
+            print(f"\n\n\nRandomWordGenerator: {response}")
+            return response
+        except requests.exceptions.ConnectionError as e:
+            print(f"there is an error occured - something")
+    
         
+    
     
     def UpdateList(self):
 
-            Title = self.RandomWordGenerator()         
-            OmdbApiUrl = f"http://www.omdbapi.com/?s={Title}&apikey={self.ApiKey}"
-            TmdbApi = f"https://api.themoviedb.org/3/search/movie?api_key={self.TmdbApiKey}&query={Title}"
-            response = requests.get(TmdbApi).json()
-            print(f"UpdateList: {TmdbApi}\nResponse: {response}")
+            try:
+                    
+                Title = self.RandomWordGenerator()         
+                OmdbApiUrl = f"http://www.omdbapi.com/?s={Title}&apikey={self.ApiKey}"
+                TmdbApi = f"https://api.themoviedb.org/3/search/movie?api_key={self.TmdbApiKey}&query={Title}"
+                response = requests.get(TmdbApi).json()
+                print(f"\n\n\n\nUpdateList: {TmdbApi}\nResponse: {response}")
 
-            return response
+                return response
+    
+            except requests.exceptions.ConnectionError as e:
+                print(f"\n\n\n\nthere is an error occured - Something")
 
-
-obj = ApiManager()
-obj.UpdateList()
+if __name__ == '__main__':
+    obj = ApiManager()
+    obj.UpdateList()
