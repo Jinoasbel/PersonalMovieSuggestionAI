@@ -12,17 +12,28 @@ class ApiManager:
 
     ApiKey = "9f5d9eb3"
     TmdbApiKey = "868d76c9b91e24806e8673c3515380e2"
+    #https://random-word-api.vercel.app/api?words=1
 
 
     def RandomWordGenerator(self):
 
         try:
             RndWordApi = "https://random-word-api.herokuapp.com/word?"
-            response = requests.get(RndWordApi).json()[0]
-            return response
+            response = requests.get(RndWordApi)
+            response.raise_for_status()
+            word = response.text.strip()
+
+            if "Exception" in word or "Error" in word or "java." in word:
+                raise ValueError("API returned an error stack trace instead of a word.")
+            return response.json()[0]
         except requests.exceptions.ConnectionError as e:
             print(f"there is an error occured - something")
-    
+
+        except ValueError:
+            print("a value error has occured")
+        except Exception:
+            print(f"an error occured in Random word generator Report to developer -- {Exception}")
+            
         
     
     
