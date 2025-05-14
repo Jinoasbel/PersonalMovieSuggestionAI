@@ -61,11 +61,23 @@ class PersonalRanking:
 
             suggestion = input("Do you Enjoy the Movie I suggested (Y/N): ").capitalize() 
             if suggestion == "Y" or "YES":
+                x=[]
+                y = 0
                 for Index, movie in enumerate(TopRankings, start = 1):
                         print(f"{Index}-Movie Name :{movie[1].get("name")}")
+                        x.append(f"{movie[1].get("name")}"+"+"+f"{movie[1].get("year")}")
                         if Index == 20:
                             break;
                 IndexName = int(input("Enter The Index of The Movie You Watched : "))
+                y = IndexName-1
+                with open("Watched.json", "r") as F:
+                    data = json.load(F) 
+
+                data["movie"].append(x[y])
+
+                with open("Watched.json", "w") as F:
+                    json.dump(data, F)
+
                 Movie = TopRankings[IndexName-1]
                 self.Data["user_vector"] = [(1 - alpha) * u + alpha * m 
                         for u, m in zip(self.UserVector, Movie[1].get("movie_vector"))

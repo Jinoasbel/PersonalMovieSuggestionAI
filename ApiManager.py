@@ -31,6 +31,7 @@ class ApiManager:
 
         except ValueError:
             print("a value error has occured")
+            return "Inception"
         except Exception:
             print(f"an error occured in Random word generator Report to developer -- {Exception}")
             

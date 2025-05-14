@@ -14,7 +14,7 @@ class PersonalMovieRecomender:
         print("--------------Ranking Movies Based On your Taste--------------")
         xx = self.personalranking.MovieRanking()
 
-        if input("Have you Watched any of the Movies(y/s)").capitalize() == "Y":
+        if input("Have you Watched any of the Movies(y/s): ").capitalize() == "Y":
             self.personalranking.UpdateUserVector(xx)
 
         else:
