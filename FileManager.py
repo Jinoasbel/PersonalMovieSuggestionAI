@@ -38,7 +38,7 @@ class FileManager:
                                 "movie_vector":VectorComputing().VectorSummation(genre = movie.get("genre_ids"),
                                                                                 rating = movie.get("vote_average"),
                                                                                 popularity = movie.get("vote_count"),
-                                                                                year = movie.get("release_date").split("-")[0]
+                                                                                year = movie.get("release_date").split("-")[0] if movie.get("release_date") else "2000"
                                                                                 )
 
                             }

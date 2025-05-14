@@ -46,7 +46,16 @@ class PersonalRanking:
         PreferenceVector.sort(key=lambda x: x[0], reverse=True)
 
         # Keep top 20
-        self.TopRankings = [movie for _, movie in PreferenceVector[:20]]
+        with open("Watched.json", "r") as FL:
+            Data = json.load(FL)
+        x = Data.get("movie")
+        
+        for _, movie in PreferenceVector:
+            if movie.get("name") not in x:
+                self.TopRankings.append(movie)
+
+        self.TopRankings = self.TopRankings[:20]
+        print(self.TopRankings)
         # pprint(self.TopRankings)
         self.Printer()
         
@@ -65,7 +74,7 @@ class PersonalRanking:
                 y = 0
                 for Index, movie in enumerate(TopRankings, start = 1):
                         print(f"{Index}-Movie Name :{movie[1].get("name")}")
-                        x.append(f"{movie[1].get("name")}"+"+"+f"{movie[1].get("year")}")
+                        x.append(f"{movie[1].get("name")}")
                         if Index == 20:
                             break;
                 IndexName = int(input("Enter The Index of The Movie You Watched : "))
