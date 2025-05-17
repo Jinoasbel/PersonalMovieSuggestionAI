@@ -18,10 +18,7 @@ class FileManager:
             for i in range (0, self.SafetyInt):
                 
                 if self.ApiData and self.ApiData.get("total_results") != 0:
-                    print("\n\n\nResponse is True")
-                    # with open(self.FileName, "r") as File:
-                    #     FileData = json.load(File)
-                        
+                    print("\n\n\nResponse is True")    
                     for movie in self.ApiData.get("results"):
 
                         if self.MovieChecker(movie.get("original_title")) == True:
@@ -66,5 +63,6 @@ class FileManager:
         return False
                       
 if __name__ == "__main__":
-    FileManager().FileWriter()
+    x = FileManager()
+    x.FileWriter()
 

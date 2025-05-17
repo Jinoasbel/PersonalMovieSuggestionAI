@@ -28,13 +28,17 @@ class ApiManager:
             return response.json()[0]
         except requests.exceptions.ConnectionError as e:
             print(f"there is an error occured - something")
+            return "boys"
+
 
         except ValueError:
             print("a value error has occured")
             return "Inception"
         except Exception:
+            return "one"
             print(f"an error occured in Random word generator Report to developer -- {Exception}")
             
+
         
     
     

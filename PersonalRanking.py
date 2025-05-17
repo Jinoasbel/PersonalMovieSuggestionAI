@@ -5,13 +5,15 @@ from sklearn.metrics.pairwise import cosine_similarity
 
 class PersonalRanking:
     
-    FileName = "ProcesedMovies.json"
-    with open(FileName, 'r') as File:
-        Data = json.load(File)
+    def __init__(self):
+        
+        self.FileName = "ProcesedMovies.json"
+        with open(self.FileName, 'r') as File:
+            self.Data = json.load(File)
 
-    UserVector = Data.get("user_vector")
+        self.UserVector = self.Data.get("user_vector")
 
-    TopRankings = []
+        self.TopRankings = []
 
     def Printer(self):
         for Index, movie in enumerate(self.TopRankings, start = 1):
@@ -26,6 +28,8 @@ class PersonalRanking:
         for movie in self.Data.get("movies"):
 
             ArrayUser = np.array(self.UserVector)
+            if movie["movie_vector"] == []:
+                movie["movie_vector"] = [0,0] 
             ArrayMovie = np.array(movie["movie_vector"])  
 
             # Clean vectors
@@ -48,7 +52,7 @@ class PersonalRanking:
         # Keep top 20
         with open("Watched.json", "r") as FL:
             Data = json.load(FL)
-        x = Data.get("movie")
+            x = Data.get("movie")
         
         for _, movie in PreferenceVector:
             if movie.get("name") not in x:
@@ -63,7 +67,7 @@ class PersonalRanking:
         return PreferenceVector
 
 
-    def UpdateUserVector(self, TopRankings):
+    def UpdateUserVector(self, PreferenceVector):
         
         alpha = 0.1
         if input("Have you watched any of the suggested movies(y/n) : ").capitalize() == "Y":
@@ -72,13 +76,14 @@ class PersonalRanking:
             if suggestion == "Y" or "YES":
                 x=[]
                 y = 0
-                for Index, movie in enumerate(TopRankings, start = 1):
-                        print(f"{Index}-Movie Name :{movie[1].get("name")}")
-                        x.append(f"{movie[1].get("name")}")
+                for Index, movie in enumerate(self.TopRankings, start = 1):
+                        print(f"{Index:02} - Movie Name :    {movie.get("name")}")
+                        x.append(f"{movie.get("name")}")
                         if Index == 20:
                             break;
                 IndexName = int(input("Enter The Index of The Movie You Watched : "))
                 y = IndexName-1
+                print(self.TopRankings[y].get("name"))
                 with open("Watched.json", "r") as F:
                     data = json.load(F) 
 
@@ -87,7 +92,7 @@ class PersonalRanking:
                 with open("Watched.json", "w") as F:
                     json.dump(data, F)
 
-                Movie = TopRankings[IndexName-1]
+                Movie = PreferenceVector[IndexName-1]
                 self.Data["user_vector"] = [(1 - alpha) * u + alpha * m 
                         for u, m in zip(self.UserVector, Movie[1].get("movie_vector"))
                     ]
