@@ -1,5 +1,6 @@
 import numpy as np
 import json
+import os
 from pprint import pprint
 from sklearn.metrics.pairwise import cosine_similarity
 
@@ -60,6 +61,7 @@ class PersonalRanking:
 
         self.TopRankings = self.TopRankings[:20]
         print(self.TopRankings)
+        os.system("cls")
         # pprint(self.TopRankings)
         self.Printer()
         

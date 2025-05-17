@@ -1,6 +1,7 @@
 import json
 from ApiManager import ApiManager
 from VectorComputing import VectorComputing
+import os
 
 class FileManager:
 
@@ -16,7 +17,7 @@ class FileManager:
         with open(self.FileName, "r") as File:
             FileData = json.load(File)
             for i in range (0, self.SafetyInt):
-                
+                os.system("cls")
                 if self.ApiData and self.ApiData.get("total_results") != 0:
                     print("\n\n\nResponse is True")    
                     for movie in self.ApiData.get("results"):
@@ -59,7 +60,7 @@ class FileManager:
                 return True
             else:
                 continue
-
+        os.system("cls")
         return False
                       
 if __name__ == "__main__":
